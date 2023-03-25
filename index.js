@@ -20,7 +20,7 @@ const maxElementByArray = (array: number[]) => {
     cont++;
 
     if (cont === aux.length) {
-      console.log('Maior valor é: ' + aux[i]);
+      // console.log('Maior valor é: ' + aux[i]);
     }
   }
   return;
@@ -40,7 +40,7 @@ const minElementByArray = (array: number[]) => {
     cont++;
 
     if (cont === aux.length) {
-      console.log('Menor valor é: ' + aux[i]);
+      // console.log('Menor valor é: ' + aux[i]);
     }
   }
   return;
@@ -65,7 +65,105 @@ type Pessoa = {
   name: string;
 };
 
-function findGuest(pessoa: Pessoa[], guest: number) {
+function findGuest(pessoas: Pessoa[] = [], guest: string) {
   // Desenvolva seu código nessa função
+  // for (let i of pessoa) {
+  //   // console.log(i.name);
+  //   if (guest === i.name) {
+  //     console.log(`A pessoa ${guest} foi convidada a festa`);
+  //   } else {
+  //     console.log('O nome não está na lista');
+  //   }
+  // }
+  pessoas.find((pessoa) => {
+    if (pessoa.name === guest) {
+      // console.log(`A pessoa ${guest} foi convidada a festa`);
+    }
+  });
   return; // Retorne o resultado aqui
 }
+
+findGuest(
+  [
+    { name: 'Daniel' },
+    { name: 'Evelin' },
+    { name: 'Joel' },
+    { name: 'Renata' },
+    { name: 'Davi' },
+  ],
+  'Davi'
+);
+
+/*
+04 - Verifique se todos os dados de uma lista são do mesmo tipo
+Escreva uma algoritmo que recebe um array de dados quaisquer e verifique se todos são do mesmo tipo.
+Se todos forem retorne:
+------
+true
+------
+Caso contrário:
+-------
+false
+-------
+Obs: Os retornos tem que ser dados do tipo boolean.
+*/
+
+type Types = {
+  name: string;
+  age: string | number;
+  status: boolean | string;
+};
+
+function dataType(types: Types[]) {
+  // Desenvolva seu código aqui.
+  types.filter((type) => {
+    if (
+      typeof type.name === 'string' &&
+      typeof type.age === 'string' &&
+      typeof type.status === 'string'
+    ) {
+      // console.log(type);
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return; // Retorne o resultado aqui
+}
+
+dataType([
+  { name: 'Daniel', age: 20, status: true },
+  { name: 'Evellin', age: 24, status: false },
+  { name: 'Davi', age: '18', status: 'Ativo' },
+]);
+
+/*
+05 - Encontre o filho mais velho
+Dada a idade de Pedro e um array com as idades de três de seus filhos, escreva um algoritmo
+que irá receber esses dados para computar e retornar a idade do filho mais velho de Pedro.
+Considere as premissas abaixo:
+* Pedro é pai de 4 filhos que têm idades diferentes;
+* Esse ano ele notou que a soma da idade de seus filhos é igual à idade dele.
+A saída deve ter o seguinte formato:
+--------------------------------
+"O filho mais velho tem x anos."
+--------------------------------
+*/
+
+type AgeKids = {
+  age: number;
+};
+
+function findOldestSon(pedroAge: number, kidsAge: AgeKids[]) {
+  // Desenvolva seu código aqui.
+  const listSort = kidsAge.sort((a, b) => (a.age > b.age ? 1 : -1));
+  for (let i = 0; i < listSort.length; i++) {
+    if (i + 1 === listSort.length) {
+      console.log(`O filho mais velho tem: ${listSort[i].age}`);
+    }
+  }
+
+  return; // Retorne o resultado aqui
+}
+
+findOldestSon(40, [{ age: 10 }, { age: 31 }, { age: 4 }, { age: 5 }]);
