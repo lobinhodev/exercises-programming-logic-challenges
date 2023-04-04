@@ -1,10 +1,3 @@
-// Import stylesheets
-import './style.css';
-
-// Write TypeScript code!
-const appDiv: HTMLElement = document.getElementById('app');
-appDiv.innerHTML = `<h1>TypeScript Starter</h1>`;
-
 /*
 01 - Encontre o maior número de um array
 Escreva um algoritmo que recebe um array de números inteiros, procure o maior valor e o retorne.
@@ -166,4 +159,4 @@ function findOldestSon(pedroAge: number, kidsAge: AgeKids[]) {
   return; // Retorne o resultado aqui
 }
 
-findOldestSon(40, [{ age: 10 }, { age: 31 }, { age: 4 }, { age: 5 }]);
+// findOldestSon(40, [{ age: 10 }, { age: 31 }, { age: 4 }, { age: 5 }]);
