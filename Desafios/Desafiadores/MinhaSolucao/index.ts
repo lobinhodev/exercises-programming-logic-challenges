@@ -143,10 +143,11 @@ const mappingNotes = (notes: Note) => {
             }
         }
         console.log(auxMappingNote)
+        return auxMappingNote
     }
 }
 
-mappingNotes(['Do', 'Re', 'Mi', 'Fa', 'Sol', 'La', 'Si'])
+// mappingNotes(['Do', 'Re', 'Mi', 'Fa', 'Sol', 'La', 'Si'])
 
 /*
 
@@ -193,3 +194,142 @@ Saída:
   }
 ] 
 -----------------------------*/
+
+const getNotes = (notes: Note) => {
+    let result:Note = notes;
+    let auxMappingNote:{}[] = [];
+
+    for (let i = 0; i < result.length; i++) {
+        switch(result[i]){
+            case 'Do' : {
+                auxMappingNote.push(  {
+                    degree: 'I',
+                    third: 'Maior',
+                    scale: 'Jônia'
+                  })
+                  break
+            }
+            case 'Re' : {
+                auxMappingNote.push(  {
+                    degree: 'II',
+                    third: 'Menor',
+                    scale: 'Dórica'
+                  })
+                  break
+            }
+            case 'Mi' : {
+                auxMappingNote.push(  {
+                    degree: 'III',
+                    third: 'Menor',
+                    scale: 'Frígia'
+                  })
+                  break
+            }
+            case 'Fa' : {
+                auxMappingNote.push(  {
+                    degree: 'IV',
+                    third: 'Maior',
+                    scale: 'Lídia'
+                  })
+                  break
+            }
+            case 'Sol' : {
+                auxMappingNote.push(  {
+                    degree: 'V',
+                    third: 'Maior',
+                    scale: 'Mixolídia'
+                  })
+                  break
+            }
+            case 'La' : {
+                auxMappingNote.push(  {
+                    degree: 'VI',
+                    third: 'Menor',
+                    scale: 'Eólia'
+                  })
+                  break
+            }
+            case 'Si' : {
+                auxMappingNote.push(  {
+                    degree: 'VII',
+                    third: 'Menor',
+                    scale: 'Lócrio'
+                  })
+                  break
+            }
+        }
+    }
+    console.log(auxMappingNote)
+}
+// getNotes(['Do', 'Re', 'Mi', 'Fa', 'Sol', 'La', 'Si'])
+
+/*
+
+05 - Varinhas mágicas
+
+Você foi a pessoa designada para escrever um novo sistema para Olivaras, o fabricante de varinhas mágicas.
+
+Como se sabe, a varinha escolhe o(a) bruxo(a), então você deverá criar um algoritmo que recebe o nome da pessoa aspirante e o nome da varinha a ser testada.
+
+Considere a seguinte tabela:
+
+|       Bruxo(a)           |               Varinha               |
+
+|    Harry Potter          |    Azevinho e Pena de Fênix         |
+|    Rony Weasley          |    Salgueiro e Pelo de Unicórnio    |
+|    Hermione Granger      |    Videira e Fibra de Dragão        |
+|    Alvo Dumbledore       |    Salgueiro e Pelo de Testrálio    |
+|    Belatriz Lestrange    |    Nogueira e Fibra de Dragão       |
+
+Se a varinha escolher a pessoa aspirante de acordo com a tabela, retorne:
+-----------------------------
+"Curioso... muito curioso..."
+-----------------------------
+
+Caso o contrário:
+--------------------------------
+"Não, não! Decididamente, não.!"
+--------------------------------
+
+Desafio: faça usando apenas um único IF acompanhado por um único Else.
+
+*/
+
+type Bruxo = {
+    nome:string
+    varinha:string
+}
+
+const listaBruxos : Bruxo[] = [
+{
+    nome: 'Harry potter', varinha: 'Azevinho e Pena de Fênix'
+},
+{
+    nome: 'Rony Weasley', varinha: 'Salgueiro e Pelo de Unicórnio'
+},
+{
+    nome: 'Hermione Granger', varinha: 'Videira e Fibra de Dragão'
+},
+{
+    nome: 'Alvo Dumbledore', varinha: 'Salgueiro e Pelo de Testrálio'
+},
+{
+    nome: 'Belatriz Lestrange', varinha: 'Nogueira e Fibra de Dragão'
+},
+]
+
+const magicWand = (bruxo: Bruxo) => {
+    for(let i = 0; i < listaBruxos.length; i++){
+        if(listaBruxos[i] === bruxo){
+            console.log("Curioso... muito curioso...")
+            break
+        } else{
+            console.log("Não, não! Decididamente, não.!")
+            break
+        }
+    }
+}
+
+magicWand({
+    nome: 'Harry potter', varinha: 'Azevinho e Pena de Fênix'
+},)
